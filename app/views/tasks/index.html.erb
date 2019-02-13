@@ -1,0 +1,15 @@
+<ol>
+  <%@tasks.each do |task| %>
+    <li> <input type="checkbox" <%= "checked"  if task.completed %>> <%=  link_to task.title, show_path(task) %> - <%= task.details %>
+
+
+    <%= link_to task_path(task),
+    method: :delete,
+    data: { confirm: "Are you sure?" }, :style=>'color:black;' do %> <i class="far fa-trash-alt"></i> <% end %>
+
+
+    </li>
+  <% end %>
+</ol>
+
+ <%= link_to "+ Add a new task", tasks_new_path %>
